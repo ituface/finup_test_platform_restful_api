@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mysql>
+    <update id="update_customer_idno">
+        update app_customer set id_no='{idNo}',customer_name='{customer_name}' where mobile='{mobile}'
+    </update>
+    <update id="update_mx_grap">
+
+        update app_lend_annex_status alas, app_customer ac,app_lend_request alr set alas.status='OBTAIN_SUCCESS' WHERE
+        ac.id=alr.app_customer_id and alr.id=alas.app_lend_request_id and ac.mobile='{mobile}' and alas.type in ({type})
+
+    </update>
+</mysql>

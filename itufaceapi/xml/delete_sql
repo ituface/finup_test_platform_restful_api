@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mysql>
+    <delete id="delete_user_token">
+        DELETE from lend_app.app_user_token where sales_no='{sale_no}'
+    </delete>
+
+</mysql>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mysql>
+    <select id="search_result">
+        SELECT
+        lc.customer_name,
+        lc.mobile,
+        fl.`status`,
+        lc.create_time
+        FROM
+        lend_app.app_customer lc
+        LEFT JOIN lend_app.app_lend_request lr ON lc.id = lr.app_customer_id
+        LEFT JOIN finup_lend.lend_request fl ON lr.id = fl.app_lend_request_id
+        LEFT JOIN finup_lend.lend_customer fc ON fl.lend_customer_id = fc.id
+        WHERE
+        lr.state_type='{status}'
+        and fl.id is not null order by lc.create_time desc limit 6
+
+    </select>
+    <select id="search_product_required">
+        select material_type from app_product_material_mapping where product_type='{product_name}' and (is_required=1 or
+        group_weight=1)
+
+    </select>
+    <select id="select_lend_request_id">
+
+        SELECT alr.id from lend_app.app_customer ac,lend_app.app_lend_request alr WHERE ac.id =alr.app_customer_id and
+        ac.mobile='{mobile}'
+    </select>
+    <select id="select_mobile_enable">
+        select count(*) as counts from app_customer where mobile='{mobile}'
+
+    </select>
+
+    <select id="select_id_status_to_piece">
+
+
+        SELECT
+        alr.id AS app_request_id ,
+        lr.id AS lend_request_id ,
+        alr.state_type AS current_status
+        FROM
+        lend_app.app_customer ac
+        LEFT JOIN lend_app.app_lend_request alr ON ac.id = alr.app_customer_id
+        LEFT JOIN finup_lend.lend_request lr ON alr.id = lr.app_lend_request_id
+        WHERE
+        ac.mobile = {mobile}
+    </select>
+</mysql>
