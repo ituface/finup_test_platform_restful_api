@@ -85,14 +85,24 @@ WSGI_APPLICATION = 'itufaceapi.wsgi.application'
 #         'PASSWORD':'OYLDASuPfbpsEQB6'
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'yyy',
+#         'HOST':'127.0.0.1',
+#         'PORT':3306,
+#         'USER':'root',
+#         'PASSWORD':'root123'
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yyy',
-        'HOST':'127.0.0.1',
+        'NAME': 'lend_app',
+        'HOST':'10.10.180.206',
         'PORT':3306,
         'USER':'root',
-        'PASSWORD':'root123'
+        'PASSWORD':'root123!@YE'
     }
 }
 # Password validation
