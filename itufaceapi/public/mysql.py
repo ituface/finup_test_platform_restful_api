@@ -2,10 +2,10 @@ import xml.etree.ElementTree as ET
 import configparser
 import pymysql,json
 cfg=configparser.ConfigParser()
-cfg.read('./public/config.ini')
+cfg.read('../public/config.ini')
 
 huanjing='mysql_sc'
-
+print(huanjing)
 
 
 host = cfg.get(huanjing,'host')
