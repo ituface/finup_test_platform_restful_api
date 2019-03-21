@@ -17,7 +17,6 @@ class MysqlHandle:
     conn = pymysql.connect(host=host, port=int(port), user=user, passwd=passwd, db=db, charset='utf8')
     conn.ping(reconnect=True)
 
-
     '''
     查询数据
     '''

@@ -4,9 +4,7 @@ from rest_framework.versioning import URLPathVersioning,AcceptHeaderVersioning,N
 from django.http import JsonResponse
 from django.shortcuts import HttpResponse
 import json,os
-import jpype
 from django.views.decorators.csrf import csrf_exempt
-
 from rest_framework.decorators import api_view,authentication_classes,renderer_classes
 from rest_framework.authentication import BaseAuthentication
 from rest_framework import exceptions
