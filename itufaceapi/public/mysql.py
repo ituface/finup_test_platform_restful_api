@@ -1,18 +1,13 @@
 import xml.etree.ElementTree as ET
 import configparser
 import pymysql,json
-cfg=configparser.ConfigParser()
-cfg.read('../public/config.ini')
-
-huanjing='mysql_sc'
-print(huanjing)
 
 
-host = cfg.get(huanjing,'host')
-port=cfg.get(huanjing,'port')
-user=cfg.get(huanjing,'user')
-passwd=cfg.get(huanjing,'passwd')
-db=cfg.get(huanjing,'db')
+host='10.10.231.135'
+port='3306'
+user='root'
+passwd='OYLDASuPfbpsEQB6'
+db='lend_app'
 class MysqlHandle:
     conn = pymysql.connect(host=host, port=int(port), user=user, passwd=passwd, db=db, charset='utf8')
     conn.ping(reconnect=True)
