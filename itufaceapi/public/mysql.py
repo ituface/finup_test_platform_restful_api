@@ -53,7 +53,7 @@ class MysqlHandle:
 
     @classmethod
     def get_xml_sql(cls, xml_path, xml_tag, xml_id):
-        tree = ET.parse('../xml/%s' % xml_path)
+        tree = ET.parse('./xml/%s' % xml_path)
         root = tree.getroot()
         select = root.findall(xml_tag)
         return ''.join([i.text for i in select if i.get("id") == xml_id]).strip()
