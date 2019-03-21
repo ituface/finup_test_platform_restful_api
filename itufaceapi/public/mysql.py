@@ -53,15 +53,10 @@ class MysqlHandle:
 
     @classmethod
     def get_xml_sql(cls, xml_path, xml_tag, xml_id):
-        tree = ET.parse('./xml/%s' % xml_path)
+        tree = ET.parse('../xml/%s' % xml_path)
         root = tree.getroot()
         select = root.findall(xml_tag)
         return ''.join([i.text for i in select if i.get("id") == xml_id]).strip()
 if __name__=='__main__':
-    from  public.Decrypt import AesUtils
     sql = MysqlHandle.get_xml_sql(xml_path='select_sql', xml_tag='select', xml_id='search_result')
     sql_data = MysqlHandle.select_mysql_data(sql.format(status='APPROVED'))
-    for inner in sql_data:
-        print(inner['mobile'])
-        inner['mobile']=AesUtils.decrypt(inner['mobile'])
-    print(sql_data)
