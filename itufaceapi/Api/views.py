@@ -209,6 +209,26 @@ def mobile_to_id_status(request):
     return JsonResponse(result,status=200)
 
 
+'''
+跳过人脸识别
+'''
+
+@api_view(['post'])
+@authentication_classes([Test1Authentication])
+@JsonToList
+def update_face_id(request):
+    try:
+        data = request.JSON
+        mobile = data['mobile'][0]
+        sql=MysqlHandle.get_xml_sql(xml_path='update_sql',xml_tag='update',xml_id='update_face_id')
+       # print('sql---->',sql.format(mobile=mobile))
+        data=MysqlHandle.delete_update_insert_mysql_data(sql.format(mobile=mobile))
+        result = {'code': 200}
+    except Exception  as e:
+        pass
+    return JsonResponse(result,status=200)
+
+
 
 
 

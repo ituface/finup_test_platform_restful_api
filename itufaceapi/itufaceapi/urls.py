@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'v1/get/updateMXstatus', views.updateMXstatus),  # 更新魔蝎状态
     url(r'v1/get/deleteTokenLendRequestId', views.delete_token_return_lend_request_id),  # 删除token，返回lend_request_id
     url(r'v1/get/mobileEnable', views.mobile_enable), #
-    url(r'v1/get/IdAndStatus', views.mobile_to_id_status) #查找id
+    url(r'v1/get/IdAndStatus', views.mobile_to_id_status), #查找id
+    url(r'v1/set/updatefaceid', views.update_face_id)
 ]

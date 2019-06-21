@@ -9,4 +9,8 @@
         ac.id=alr.app_customer_id and alr.id=alas.app_lend_request_id and ac.mobile='{mobile}' and alas.type in ({type})
 
     </update>
+
+    <update id="update_face_id">
+        update lend_app.app_lend_request set live_confidence='44.33' ,live_time='2019-06-12' where app_customer_id=(select id from lend_app.app_customer where mobile='{mobile}')
+    </update>
 </mysql>
