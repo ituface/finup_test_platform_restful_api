@@ -57,6 +57,4 @@ class MysqlHandle:
         root = tree.getroot()
         select = root.findall(xml_tag)
         return ''.join([i.text for i in select if i.get("id") == xml_id]).strip()
-if __name__=='__main__':
-    sql = MysqlHandle.get_xml_sql(xml_path='select_sql', xml_tag='select', xml_id='search_result')
-    sql_data = MysqlHandle.select_mysql_data(sql.format(status='APPROVED'))
+

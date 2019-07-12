@@ -4,6 +4,7 @@ from rest_framework.versioning import URLPathVersioning,AcceptHeaderVersioning,N
 from django.http import JsonResponse
 from django.shortcuts import HttpResponse
 import json,os
+from datetime import date
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view,authentication_classes,renderer_classes
 from rest_framework.authentication import BaseAuthentication
@@ -220,13 +221,16 @@ def update_face_id(request):
     try:
         data = request.JSON
         mobile = data['mobile'][0]
+        today=date.today()
         sql=MysqlHandle.get_xml_sql(xml_path='update_sql',xml_tag='update',xml_id='update_face_id')
        # print('sql---->',sql.format(mobile=mobile))
-        data=MysqlHandle.delete_update_insert_mysql_data(sql.format(mobile=mobile))
+        data=MysqlHandle.delete_update_insert_mysql_data(sql.format(mobile=mobile,date=today))
         result = {'code': 200}
     except Exception  as e:
         pass
     return JsonResponse(result,status=200)
+
+
 
 
 
