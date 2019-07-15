@@ -11,6 +11,6 @@
     </update>
 
     <update id="update_face_id">
-        update lend_app.app_lend_request set live_confidence='98.44' ,live_time='{date}' where app_customer_id=(select id from lend_app.app_customer where mobile='{mobile}')
+        update lend_app.app_lend_request set live_confidence='98.44' ,live_time='{date}',state_type='SALE_EXAMINE' where app_customer_id=(select id from lend_app.app_customer where mobile='{mobile}')
     </update>
 </mysql>
